@@ -1,0 +1,13 @@
+.profile__vector-editButton {
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .profile__vector-editButton {
+        width: 7.5px;
+        height: 7.5px;
+        margin: 4.2px;
+    }
+}
