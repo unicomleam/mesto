@@ -1,8 +1,0 @@
-.popup__line {
-    margin: 10px 0 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-}
-
-.popup__line:first-of-type {
-    margin-bottom: 30px;
-}
