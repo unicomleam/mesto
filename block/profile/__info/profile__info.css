@@ -3,7 +3,7 @@
     flex-direction: column;
     max-height: 73px;
     row-gap: 16px;
-    max-width: 336px;
+    flex-basis: content;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
