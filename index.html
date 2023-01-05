@@ -11,73 +11,68 @@
     <div class="page__container">
         <header class="header">
             <img src="./images/header/logo.svg" alt="Логотип сервиса Mesto" class="header__logo">
-            <div class="header__line"></div>
         </header>
 
         <main class="content">
             <section class="profile">
-                <img src="./images/profile/Avatar.png" alt="Аватар" class="profile__avatar">
+                <img src="./images/profile/avatar.jpg" alt="Аватар" class="profile__avatar">
                 <div class="profile__info">
                     <div class="profile__redact-block">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button type="button" class="profile__edit-button effect">
-                            <img src="./images/profile/edit-button_vector.svg" alt="Знак 'редактировать' " class="profile__vector-editButton">
-                        </button>
+                        <button type="button" aria-label="profile edit" class="profile__edit-button effect"></button>
                     </div>
                     <p class="profile__profession">Исследователь океана</p>
                 </div>
-                <button type="button" class="profile__add-button effect">
-                    <img src="./images/profile/add-button_vector.svg" alt="Знак 'добавить' " class="profile__vector-addButton">
-                </button>
+                <button type="button" aria-label="profile add card" class="profile__add-button effect"></button>
             </section>
 
-            <section aria-label="галлерея" class="gallery">
+            <section class="gallery">
                 <ul class="gallery__elements">
                     <li class="element">
                         <img src="./images/gallery/Karachaevo-Cherkessia.jpg" alt="Горный пейзаж" class="element__image">
                         <div class="element__bottom-group">
-                            <p class="element__appellation">Карачаево-Черкессия</p>
-                            <button type="button" class="element__like-button element__like-button_diasbled effect"></button>
+                            <h2 class="element__appellation">Карачаево-Черкессия</h2>
+                            <button type="button" class="element__like-button effect"></button>
                         </div>
                     </li>
 
                     <li class="element">
                         <img src="./images/gallery/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
                         <div class="element__bottom-group">
-                            <p class="element__appellation">Гора Эльбрус</p>
-                            <button type="button" class="element__like-button element__like-button_diasbled effect"></button>
+                            <h2 class="element__appellation">Гора Эльбрус</h2>
+                            <button type="button" class="element__like-button effect"></button>
                         </div>
                     </li>
 
                     <li class="element">
                         <img src="./images/gallery/Dombay.jpg" alt="Горы Домбайя" class="element__image">
                         <div class="element__bottom-group">
-                            <p class="element__appellation">Домбай</p>
-                            <button type="button" class="element__like-button element__like-button_diasbled effect"></button>
+                            <h2 class="element__appellation">Домбай</h2>
+                            <button type="button" class="element__like-button effect"></button>
                         </div>
                     </li>
 
                     <li class="element">
                         <img src="./images/gallery/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
                         <div class="element__bottom-group">
-                            <p class="element__appellation">Гора Эльбрус</p>
-                            <button type="button" class="element__like-button element__like-button_diasbled effect"></button>
+                            <h2 class="element__appellation">Гора Эльбрус</h2>
+                            <button type="button" class="element__like-button effect"></button>
                         </div>
                     </li>
 
                     <li class="element">
                         <img src="./images/gallery/Dombay.jpg" alt="Горы Домбайя" class="element__image">
                         <div class="element__bottom-group">
-                            <p class="element__appellation">Домбай</p>
-                            <button type="button" class="element__like-button element__like-button_diasbled effect"></button>
+                            <h2 class="element__appellation">Домбай</h2>
+                            <button type="button" class="element__like-button effect"></button>
                         </div>
                     </li>
 
                     <li class="element">
                         <img src="./images/gallery/Karachaevo-Cherkessia.jpg" alt="Горный пейзаж" class="element__image">
                         <div class="element__bottom-group">
-                            <p class="element__appellation">Карачаево-Черкессия</p>
-                            <button type="button" class="element__like-button element__like-button_diasbled effect"></button>
+                            <h2 class="element__appellation">Карачаево-Черкессия</h2>
+                            <button type="button" class="element__like-button effect"></button>
                         </div>
                     </li>
                 </ul>
@@ -86,25 +81,22 @@
         </main>
 
         <footer class="footer">
-            <h2 class="footer__author">© 2022 Mesto Russia</h2>
+            <p class="footer__author">© 2022 Mesto Russia</p>
         </footer>
-    </div>
-    <div class="page__container popup">
-        <div class="popup__container">
-            <form class="popup__form">
-                <h2 class="popup__title">Редактировать профиль</h2>
 
-                <input type="text" class="popup__input popup__input_type_name">
-                <div class="popup__line"></div>
-
-                <input type="text" class="popup__input popup__input_type_profession">
-                <div class="popup__line"></div>
-
-                <button type="button" class="popup__submit effect">Сохранить</button>
-            </form>
-            <button type="button" class="popup__close effect">
-                <img alt="Иконка закрытия" src="./images/popup/close-icon.svg" class="popup__close-icon">
-            </button>
+        <div class="popup">
+            <div class="popup__container">
+                <button type="button" class="popup__close effect"></button>
+                <form name="form-edit" class="popup__form">
+                    <h3 class="popup__title">Редактировать профиль</h3>
+    
+                    <input type="text" name="user-name" class="popup__input popup__input_type_name">
+    
+                    <input type="text" name="user-profession" class="popup__input popup__input_type_profession">
+    
+                    <button type="submit" class="popup__submit effect">Сохранить</button>
+                </form>
+            </div>
         </div>
     </div>
     

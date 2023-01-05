@@ -3,6 +3,11 @@
     height: 19px;
     border: none;
     background-color: transparent;
+    background-image: url(../../../images/gallery/like_disabled.svg);
     padding: 0;
     margin: 5px 5px 1px;
+}
+
+.element__like-button:hover {
+    opacity: .5;
 }

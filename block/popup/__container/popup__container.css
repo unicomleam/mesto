@@ -1,18 +1,22 @@
 .popup__container {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 195px;
-    width: 430px;
-    height: 330px;
-    background-color: #fff;
-    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 32px 430px 32px;
+    grid-template-rows: 32px 330px 185px;
+    grid-template-areas:
+        ". . close"
+        ". popup-form ."
+        ". . .";
+    gap: 8px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .popup__container {
-        top: 123px;
-        width: 282px;
-        height: fit-content;
+        grid-template-columns: 282px;
+        grid-template-rows: 20px 322px 332px;
+        grid-template-areas:
+        "close"
+        "popup-form"
+        ".";
+        gap: 16px;
     }
 }

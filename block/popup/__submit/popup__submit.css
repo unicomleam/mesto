@@ -7,7 +7,6 @@
     border-radius: 2px;
     background-color: #000;
     cursor: pointer;
-
     color: #fff;
     font-weight: 400;
     font-size: 18px;
@@ -18,7 +17,11 @@
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .popup__submit{
         height: 46px;
-        margin: 45px 0 25px;
+        margin: 45px 0 0;
         font-size: 15px;
     }
+}
+
+.popup__submit:hover {
+    opacity: .8;
 }
