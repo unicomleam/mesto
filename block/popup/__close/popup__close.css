@@ -1,5 +1,6 @@
 .popup__close {
-    grid-area: close;
+    margin-left: calc((880px / 2) + 32px);
+    margin-bottom: 8px;
     width: 32px;
     height: 32px;
     border: none;
@@ -15,7 +16,8 @@
     .popup__close {
         width: 20px;
         height: 20px;
-        justify-self: end;
+        margin-left: calc(282px - 20px);
+        margin-bottom: 16px;
     }
 }
 

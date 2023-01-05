@@ -1,22 +1,13 @@
 .popup__container {
-    display: grid;
-    grid-template-columns: 32px 430px 32px;
-    grid-template-rows: 32px 330px 185px;
-    grid-template-areas:
-        ". . close"
-        ". popup-form ."
-        ". . .";
-    gap: 8px;
+    display: flex; 
+    flex-direction: column;
+    width: 430px;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .popup__container {
-        grid-template-columns: 282px;
-        grid-template-rows: 20px 322px 35px;
-        grid-template-areas:
-        "close"
-        "popup-form"
-        ".";
-        gap: 16px;
+        width: 282px;
     }
 }
