@@ -3,10 +3,14 @@ const addButton = document.querySelector('.profile__add-button');
 
 const closeButtonAdd = document.querySelector('#btn-close-add');
 const closeButtonEdit = document.querySelector('#btn-close-edit');
+const closeButtonImg = document.querySelector('#btn-close-img');
 
 const popupEdit = document.querySelector('#popup-form-edit');
 const popupAdd = document.querySelector('#popup-form-add');
-const popupImg = document.querySelector('.popup');/* удалить потом */
+const popupImg = document.querySelector('#popup-img');
+
+const zoomImg = popupImg.querySelector('.popup__image');
+const figcaptionImg = popupImg.querySelector('.popup__figcaption');
 
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
@@ -61,6 +65,9 @@ const createCard = (nameCard, linkCard) => {
         cardElementLikeBtn.classList.toggle('element__like-button_active');
     });
     cardElement.querySelector('.element__delete').addEventListener('click', () => {cardElement.remove();});
+    cardElementImg.addEventListener('click', () => {
+        openPopupImg(nameCard, linkCard);
+    });
 
     return cardElement;
 }
@@ -77,6 +84,13 @@ function openPopupEdit() {
 
 function openPopupAdd() {
     popupAdd.classList.add('popup_opened');
+}
+
+function openPopupImg(nameCard, linkCard) {
+    zoomImg.src = linkCard;
+    zoomImg.alt = nameCard;
+    figcaptionImg.textContent = nameCard;
+    popupImg.classList.add('popup_opened');
 }
 
 const closePopup = (popup) => {
@@ -112,6 +126,9 @@ closeButtonAdd.addEventListener('click', function() {
 closeButtonEdit.addEventListener('click', function() {
     closePopup(popupEdit);
 });
+closeButtonImg.addEventListener('click', function() {
+    closePopup(popupImg);
+})
 
 popupEdit.addEventListener('submit', redactInfo);
 popupAdd.addEventListener('submit', addNewCard);
