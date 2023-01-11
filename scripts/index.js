@@ -55,11 +55,27 @@ const addCard = (nameCard, linkCard) => {
 
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeOnEsc);
+    popup.addEventListener('click', closePopupOnOverlay);
 }
 
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeOnEsc);
+    popup.removeEventListener('click', closePopupOnOverlay);
 }
+
+function closeOnEsc (evt) {
+    if (evt.key === 'Escape') {
+        closePopup(document.querySelector('.popup_opened'));
+    };
+};
+
+function closePopupOnOverlay (evt) {
+    if (evt.target === evt.currentTarget) {
+        closePopup(document.querySelector('.popup_opened'));
+      };
+};
 
 function handleRedactInfo(evt) {
     evt.preventDefault();

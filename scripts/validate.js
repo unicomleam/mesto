@@ -1,4 +1,3 @@
-
 function hasInvalidInput(inputList) {
     return inputList.some((inputElement) => !inputElement.validity.valid);
 };
@@ -17,7 +16,7 @@ function hideInputError(formElement, inputElement, config) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
     errorElement.classList.remove(config.errorClass);
-    errorElement.textContent = ''; //reset
+    errorElement.textContent = '';
     inputElement.classList.remove(config.inputErrorClass);
 };
 
