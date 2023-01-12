@@ -72,8 +72,9 @@ function closeOnEsc (evt) {
 };
 
 function closePopupOnOverlay (evt) {
-    if (evt.target === evt.currentTarget) {
-        closePopup(document.querySelector('.popup_opened'));
+    const closeButton = evt.currentTarget.querySelector('.popup__close');
+    if (evt.target === evt.currentTarget || evt.target === closeButton) {
+        closePopup(evt.currentTarget);
       };
 };
 
@@ -102,15 +103,11 @@ buttonEdit.addEventListener('click', function() {
 });
 buttonAdd.addEventListener('click', () => {openPopup(popupAdd)});
 
-buttonCloseAdd.addEventListener('click', function() {
-    closePopup(popupAdd);
-});
-buttonCloseEdit.addEventListener('click', function() {
-    closePopup(popupEdit);
-});
-buttonCloseImg.addEventListener('click', function() {
-    closePopup(popupImg);
-})
+buttonCloseAdd.addEventListener('click', closePopupOnOverlay);
+
+buttonCloseEdit.addEventListener('click', closePopupOnOverlay);
+
+buttonCloseImg.addEventListener('click', closePopupOnOverlay);
 
 popupEdit.addEventListener('submit', handleRedactInfo);
 popupAdd.addEventListener('submit', addNewCard);

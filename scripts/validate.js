@@ -2,10 +2,14 @@ function hasInvalidInput(inputList) {
     return inputList.some((inputElement) => !inputElement.validity.valid);
 };
 
+function resetButton (buttonElement, config) {
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.disabled = true;
+};
+
 function toggleButtonState(inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(config.inactiveButtonClass);
-        buttonElement.disabled = true;
+        resetButton(buttonElement, config);
     } else {
         buttonElement.classList.remove(config.inactiveButtonClass);
         buttonElement.disabled = false;
@@ -36,9 +40,8 @@ function checkInputValidity(formElement, inputElement, config) {
     };
 };
 
-function setEventListeners(formElement, config) {
+function setEventListeners(formElement, buttonElement, config) {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-    const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
@@ -52,7 +55,9 @@ function enableValidation(config) {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
 
     formList.forEach((formElement) => {
-        setEventListeners(formElement, config);
+        const buttonElement = formElement.querySelector(config.submitButtonSelector);
+        formElement.addEventListener('submit', () => {resetButton(buttonElement, config);})
+        setEventListeners(formElement, buttonElement, config);
     });
 };
 
