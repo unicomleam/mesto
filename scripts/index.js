@@ -1,10 +1,6 @@
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 
-const buttonCloseAdd = document.querySelector('#btn-close-add');
-const buttonCloseEdit = document.querySelector('#btn-close-edit');
-const buttonCloseImg = document.querySelector('#btn-close-img');
-
 const popupEdit = document.querySelector('#popup-form-edit');
 const popupAdd = document.querySelector('#popup-form-add');
 const popupImg = document.querySelector('#popup-img');
@@ -102,12 +98,6 @@ buttonEdit.addEventListener('click', function() {
     openPopup(popupEdit);
 });
 buttonAdd.addEventListener('click', () => {openPopup(popupAdd)});
-
-buttonCloseAdd.addEventListener('click', closePopupOnOverlay);
-
-buttonCloseEdit.addEventListener('click', closePopupOnOverlay);
-
-buttonCloseImg.addEventListener('click', closePopupOnOverlay);
 
 popupEdit.addEventListener('submit', handleRedactInfo);
 popupAdd.addEventListener('submit', addNewCard);
