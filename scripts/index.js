@@ -1,12 +1,10 @@
+import { Card } from "./Card.js";
+
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 
 const popupEdit = document.querySelector('#popup-form-edit');
 const popupAdd = document.querySelector('#popup-form-add');
-const popupImg = document.querySelector('#popup-img');
-
-const zoomImg = popupImg.querySelector('.popup__image');
-const figcaptionImg = popupImg.querySelector('.popup__figcaption');
 
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
@@ -17,39 +15,16 @@ const popupProfession = document.querySelector('.popup__input_type_profession');
 const newCardName = document.querySelector('.popup__input_card_name');
 const newCardLink = document.querySelector('.popup__input_card_link');
 
-const templateCard = document.querySelector('#template-card-element').content;
 const cardsContainer = document.querySelector('.gallery__elements');
 
+const addCard = (nameCard, linkCard, templateSelector) => {
+    const card = new Card(nameCard, linkCard, templateSelector);
+    console.log(card);
 
-const createCard = (nameCard, linkCard) => {
-    const cardElement = templateCard.querySelector('.element').cloneNode(true);
-    const cardElementImg = cardElement.querySelector('.element__image');
-    const cardElementAppellation = cardElement.querySelector('.element__appellation');
-    const cardElementLikeBtn = cardElement.querySelector('.element__like-button');
-
-    cardElementImg.src = linkCard;
-    cardElementImg.alt = nameCard;
-    cardElementAppellation.textContent = nameCard;
-
-    cardElementLikeBtn.addEventListener('click', () => {
-        cardElementLikeBtn.classList.toggle('element__like-button_active');
-    });
-    cardElement.querySelector('.element__delete').addEventListener('click', () => {cardElement.remove();});
-    cardElementImg.addEventListener('click', function() {
-        zoomImg.src = linkCard;
-        zoomImg.alt = nameCard;
-        figcaptionImg.textContent = nameCard;
-        openPopup(popupImg);
-    });
-
-    return cardElement;
+    cardsContainer.prepend(card.generateCard());
 }
 
-const addCard = (nameCard, linkCard) => {
-    cardsContainer.prepend(createCard(nameCard, linkCard));
-}
-
-const openPopup = (popup) => {
+export const openPopup = (popup) => {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeOnEsc);
     popup.addEventListener('click', closePopupOnOverlay);
@@ -89,7 +64,7 @@ function addNewCard(evt) {
 }
 
 initialCards.forEach((item) => {
-    addCard(item.name, item.link);
+    addCard(item.name, item.link, '#template-card-element');
 })
 
 buttonEdit.addEventListener('click', function() {
