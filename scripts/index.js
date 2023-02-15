@@ -1,10 +1,15 @@
 import { Card } from "./Card.js";
+import { nameConfig } from "./nameConfig.js";
+import { FormValidator } from "./validate.js";
 
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 
 const popupEdit = document.querySelector('#popup-form-edit');
 const popupAdd = document.querySelector('#popup-form-add');
+
+const profileForm = popupEdit.querySelector('.popup__form_edit');
+const cardAddForm = popupAdd.querySelector('.popup__form_add');
 
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
@@ -19,8 +24,6 @@ const cardsContainer = document.querySelector('.gallery__elements');
 
 const addCard = (nameCard, linkCard, templateSelector) => {
     const card = new Card(nameCard, linkCard, templateSelector);
-    console.log(card);
-
     cardsContainer.prepend(card.generateCard());
 }
 
@@ -59,13 +62,19 @@ function handleRedactInfo(evt) {
 function addNewCard(evt) {
     evt.preventDefault();
     closePopup(popupAdd);
-    addCard(newCardName.value, newCardLink.value);
+    addCard(newCardName.value, newCardLink.value, '#template-card-element');
     evt.target.reset();
 }
 
 initialCards.forEach((item) => {
     addCard(item.name, item.link, '#template-card-element');
 })
+
+const profileValidation = new FormValidator(nameConfig, profileForm);
+profileValidation.enableValidation();
+
+const newCardValidation = new FormValidator(nameConfig, cardAddForm);
+newCardValidation.enableValidation();
 
 buttonEdit.addEventListener('click', function() {
     popupName.value = profileName.textContent;
