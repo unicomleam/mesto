@@ -1,14 +1,10 @@
-import { openPopup } from './index.js';
-
 export class Card {
-    constructor(name, link, templateSelector) {
-        this._name = name;
-        this._link = link;
-        this._templateSelector = templateSelector;
+    constructor(config, templateSelector, handleCardClick) {
+        this._name = config.name;
+        this._link = config.link;
 
-        this._popupImg = document.querySelector('#popup-img');
-        this._zoomImg = this._popupImg.querySelector('.popup__image');
-        this._figcaptionImg = this._popupImg.querySelector('.popup__figcaption');
+        this._templateSelector = templateSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -17,38 +13,31 @@ export class Card {
     }
 
     _setEventListeners() {
-        const _cardElementLikeBtn = this._element.querySelector('.element__like-button');
         const _deleteBtn = this._element.querySelector('.element__delete');
-        const _cardElementImg = this._element.querySelector('.element__image');
 
-        _cardElementLikeBtn.addEventListener('click', (evt) => {this._toggleLike(evt)});
+        this._cardElementLikeBtn.addEventListener('click', () => {this._toggleLike()});
 
-        _deleteBtn.addEventListener('click', (evt) => {this._deleteElement(evt)});
+        _deleteBtn.addEventListener('click', () => {this._deleteElement()});
 
-        _cardElementImg.addEventListener('click', () => {this._handleOpenZoomPopup()});
+        this._cardImage.addEventListener('click', () => {this._handleCardClick(this._name, this._link)});
     }
 
-    _toggleLike(evt) {
-        evt.target.classList.toggle('element__like-button_active');
+    _toggleLike() {
+        this._cardElementLikeBtn.classList.toggle('element__like-button_active');
     }
 
-    _deleteElement(evt) {
-        evt.target.closest('.element').remove();
-    }
-
-    _handleOpenZoomPopup() {
-        this._zoomImg.src = this._link;
-        this._zoomImg.alt = this._name;
-        this._figcaptionImg.textContent = this._name;
-        openPopup(this._popupImg);
+    _deleteElement() {
+        this._element.closest('.element').remove();
     }
 
     generateCard() {
         this._element = this._getTemplate();
+        this._cardImage = this._element.querySelector('.element__image');
+        this._cardElementLikeBtn = this._element.querySelector('.element__like-button');
         this._setEventListeners();
 
-        this._element.querySelector('.element__image').src = this._link;
-        this._element.querySelector('.element__image').alr = this._name;
+        this._cardImage.src = this._link;
+        this._cardImage.alr = this._name;
         this._element.querySelector('.element__appellation').textContent = this._name;
 
         return this._element;

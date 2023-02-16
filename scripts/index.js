@@ -8,6 +8,10 @@ const buttonAdd = document.querySelector('.profile__add-button');
 const popupEdit = document.querySelector('#popup-form-edit');
 const popupAdd = document.querySelector('#popup-form-add');
 
+const popupImg = document.querySelector('#popup-img');
+const zoomImg = popupImg.querySelector('.popup__image');
+const figcaptionImg = popupImg.querySelector('.popup__figcaption');
+
 const templateSelector = '#template-card-element';
 
 const profileForm = popupEdit.querySelector('.popup__form_edit');
@@ -24,16 +28,23 @@ const newCardLink = document.querySelector('.popup__input_card_link');
 
 const cardsContainer = document.querySelector('.gallery__elements');
 
+function handleCardClick(name, link) {
+    zoomImg.src = link;
+    zoomImg.alt = name;
+    figcaptionImg.textContent = name;
+    openPopup(popupImg);
+}
+
 const addCard = (elem) => {
     cardsContainer.prepend(elem);
 }
 
-function createCard(name, link) {
-    const card = new Card(name, link, templateSelector);
+function createCard(item) {
+    const card = new Card(item, templateSelector, handleCardClick);
     return card.generateCard();
 };
 
-export const openPopup = (popup) => {
+const openPopup = (popup) => {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeOnEsc);
     popup.addEventListener('click', closePopupOnOverlay);
@@ -68,13 +79,13 @@ function handleRedactInfo(evt) {
 function addNewCard(evt) {
     evt.preventDefault();
     closePopup(popupAdd);
-    const elem = createCard(newCardName.value, newCardLink.value);
+    const elem = createCard({name: newCardName.value, link: newCardLink.value}, handleCardClick);
     addCard(elem);
     evt.target.reset();
 }
 
 initialCards.forEach((item) => {
-    const elem = createCard(item.name, item.link);
+    const elem = createCard(item);
     addCard(elem);
 })
 
