@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
     constructor(config, templateSelector, handleCardClick) {
         this._name = config.name;
         this._link = config.link;
