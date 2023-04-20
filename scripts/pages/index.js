@@ -5,29 +5,18 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 
-import { nameConfig, initialCards, templateSelector } from "../utils/constants.js";
-
-const buttonEdit = document.querySelector('.profile__edit-button');
-const buttonAdd = document.querySelector('.profile__add-button');
-
-const popupEdit = document.querySelector('#popup-form-edit');///
-const popupAdd = document.querySelector('#popup-form-add');///
-
-const profileForm = popupEdit.querySelector('.popup__form_edit');////
-const cardAddForm = popupAdd.querySelector('.popup__form_add');////
-
-const profileName = document.querySelector('.profile__name');/////
-const profileProfession = document.querySelector('.profile__profession');/////
-
-const popupName = document.querySelector('.popup__input_type_name');
-const popupProfession = document.querySelector('.popup__input_type_profession');
-
-function handleRedactInfo(evt) {
-    evt.preventDefault();
-    profileName.textContent = popupName.value;
-    profileProfession.textContent = popupProfession.value;
-    closePopup(popupEdit);
+import {
+    nameConfig,
+    initialCards,
+    templateSelector,
+    buttonEdit,
+    buttonAdd,
+    profileForm,
+    cardAddForm,
+    popupName,
+    popupProfession
 }
+    from "../utils/constants.js";
 
 function createCard(item, templateSelector) {
     const card = new Card(item, templateSelector, () => {popupWithImage.open(item.name, item.link)});
