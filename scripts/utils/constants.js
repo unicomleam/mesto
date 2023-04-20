@@ -33,3 +33,5 @@ export const nameConfig = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
 };
+
+export const templateSelector = '#template-card-element';

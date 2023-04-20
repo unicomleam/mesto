@@ -42,10 +42,10 @@
                     <form name="form-edit" class="popup__form popup__form_edit" novalidate>
                         <h3 class="popup__title">Редактировать профиль</h3>
     
-                        <input type="text" id="username" required name="username" minlength="2" maxlength="40" class="popup__input popup__input_type_name">
+                        <input type="text" id="username" required name="name" minlength="2" maxlength="40" class="popup__input popup__input_type_name">
                         <span class="username-error popup__input-error"></span>
     
-                        <input type="text" id="user-profession" required name="user-profession" minlength="2" maxlength="200" class="popup__input popup__input_type_profession">
+                        <input type="text" id="user-profession" required name="profession" minlength="2" maxlength="200" class="popup__input popup__input_type_profession">
                         <span class="user-profession-error popup__input-error"></span>
     
                         <button type="submit" class="popup__button effect">Сохранить</button>
@@ -61,10 +61,10 @@
                     <form name="form-add" class="popup__form popup__form_add" novalidate>
                         <h3 class="popup__title">Новое место</h3>
     
-                        <input type="text" id="card-name" required name="card-name" placeholder="Название" minlength="2" maxlength="30" class="popup__input popup__input_card_name">
+                        <input type="text" id="card-name" required name="name" placeholder="Название" minlength="2" maxlength="30" class="popup__input popup__input_card_name">
                         <span class="card-name-error popup__input-error"></span>
     
-                        <input type="url" id="card-link-to-pic" required name="card-link-to-pic" placeholder="Ссылка на картинку" class="popup__input popup__input_card_link">
+                        <input type="url" id="card-link-to-pic" required name="link" placeholder="Ссылка на картинку" class="popup__input popup__input_card_link">
                         <span class="card-link-to-pic-error popup__input-error"></span>
     
                         <button type="submit" disabled class="popup__button popup__button_disabled effect">Создать</button>

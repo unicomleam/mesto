@@ -9,6 +9,9 @@ export default class Card {
 
     _getTemplate() {
         const cardElement = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
+        this._cardImage = cardElement.querySelector('.element__image');
+        this._cardElementLikeBtn = cardElement.querySelector('.element__like-button');
+
         return cardElement;
     }
 
@@ -32,12 +35,10 @@ export default class Card {
 
     generateCard() {
         this._element = this._getTemplate();
-        this._cardImage = this._element.querySelector('.element__image');
-        this._cardElementLikeBtn = this._element.querySelector('.element__like-button');
         this._setEventListeners();
 
         this._cardImage.src = this._link;
-        this._cardImage.alr = this._name;
+        this._cardImage.alt = this._name;
         this._element.querySelector('.element__appellation').textContent = this._name;
 
         return this._element;
