@@ -14,10 +14,6 @@ export default class PopupWithForm extends Popup {
         return formValues
     }
 
-    close() {
-        super.close();
-    }
-
     setEventListeners() {
         super.setEventListeners();
 

@@ -34,13 +34,12 @@ const userInfo = new UserInfo({ name: '.profile__name', info: '.profile__profess
 
 const popupWithImage = new PopupWithImage('#popup-img');
 
-const formPopupAddCard = new PopupWithForm({ popupSelector: '#popup-form-add', callbackSubmit: (data) => { /////
+const formPopupAddCard = new PopupWithForm({ popupSelector: '#popup-form-add', callbackSubmit: (data) => {
     section.addItem(createCard(data, templateSelector));
     formPopupAddCard.close();
 } });
 
 const formPopupProfileEdit = new PopupWithForm({ popupSelector: '#popup-form-edit', callbackSubmit: (data) => { userInfo.setUserInfo(data.name, data.profession) } });
-
 
 const profileValidation = new FormValidator(nameConfig, profileForm);
 profileValidation.enableValidation();
@@ -53,8 +52,11 @@ buttonEdit.addEventListener('click', () => {
     formPopupProfileEdit.open();
     profileForm.reset();
     profileValidation.resetValidation();
-    popupName.value = userInfo.getUserInfo().name;
-    popupProfession.value = userInfo.getUserInfo().profession;
+
+    const profileInfo = userInfo.getUserInfo();
+
+    popupName.value = profileInfo.name;
+    popupProfession.value = profileInfo.profession;
 });
 buttonAdd.addEventListener('click', () => {
     formPopupAddCard.open();
