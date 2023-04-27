@@ -7,7 +7,7 @@
 
 **Ссылка на проект**
 
-* https://unicomleam.github.io/mesto
+* https://unicomleam.github.io/mesto/
 
 **Инфо**
 
