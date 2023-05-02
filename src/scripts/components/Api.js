@@ -72,8 +72,7 @@ export class Api {
     }
 
     _sendRequest(url, options) {
-        return fetch(url, options)
-                  .then(this._checkResponse);
+        return fetch(url, options).then(this._checkResponse);
     }
 
     _checkResponse(res) {
