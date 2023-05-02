@@ -33,10 +33,10 @@
 .popup_background{background-color:rgba(0,0,0,.9)}
 .popup__container{display:grid;gap:8px;grid-template-areas:". . close" ". form .";grid-template-columns:32px 430px 32px}@media screen and (min-width:320px) and (max-width:767px){.popup__container{gap:16px;grid-template-areas:"close" "form";grid-template-columns:282px}}
 .popup_opened{opacity:1;transition:opacity 1s;visibility:visible;z-index:1}
-.popup__title{font-size:24px;font-weight:900;line-height:100%;margin:0 0 50px}@media screen and (min-width:320px) and (max-width:767px){.popup__title{font-size:18px;margin-bottom:75px}}
+.popup__title{font-size:24px;font-weight:900;line-height:100%;margin:0}@media screen and (min-width:320px) and (max-width:767px){.popup__title{font-size:18px;margin-bottom:75px}}
 .popup__close{background-color:transparent;background-image:url(2ceb783afbab75916ddc.svg);background-position:50%;background-size:contain;border:none;cursor:pointer;grid-area:close;height:32px;padding:0;width:32px}@media screen and (min-width:320px) and (max-width:767px){.popup__close{height:20px;justify-self:end;width:20px}}.popup__close:hover{opacity:.6}
 .popup__form{padding:34px 36px 31px;position:relative}@media screen and (min-width:320px) and (max-width:767px){.popup__form{padding:25px 22px}}
-.popup__input{border:0;border-bottom:1px solid rgba(0,0,0,.2);cursor:pointer;font-size:14px;font-weight:400;height:30px;line-height:17px;outline-color:rgba(0,153,255,.6);padding:0;width:100%}.popup__input:last-of-type{margin-top:40px}
+.popup__input{border:0;border-bottom:1px solid rgba(0,0,0,.2);cursor:pointer;font-size:14px;font-weight:400;height:30px;line-height:17px;margin-top:40px;outline-color:rgba(0,153,255,.6);padding:0;width:100%}.popup__input:first-of-type{margin-top:50px}
 .popup__button{background-color:#000;border:none;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-weight:400;height:50px;line-height:100%;margin:50px auto 0;padding:0;text-align:center;width:100%}@media screen and (min-width:320px) and (max-width:767px){.popup__button{font-size:15px;height:46px;margin:45px 0 0}}.popup__button:hover{opacity:.8}
 .popup__button_disabled{background:none;border:1px solid #e5e5e5;color:#e5e5e5;cursor:default}
 .popup__wrapper{background-color:#fff;border-radius:10px;grid-area:form}
